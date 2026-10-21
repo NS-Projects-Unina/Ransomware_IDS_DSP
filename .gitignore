@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Backup e file temporanei
+*.bak
+*.pre-*
+*.dryrun-backup
+*.tmp
+*.swp
+*~
+
+# Log generati durante l'esecuzione
+logs/*
+!logs/README.md
+
+# Configurazioni locali
+.env
+.env.*
+!.env.example

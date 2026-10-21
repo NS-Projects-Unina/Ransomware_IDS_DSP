@@ -1,0 +1,51 @@
+services:
+  Attacker:
+    image: dockersecplayground/alpine:latest
+    command: ["sh", "-c", "tail -f /dev/null"]
+    stdin_open: true
+    tty: true
+    networks:
+      internal_net:
+        ipv4_address: 10.10.10.2
+
+  Gateaway:
+    image: ransomware-gateway:local
+    entrypoint:
+      - sh
+      - -c
+      - |
+        rm -f /tmp/suricata-lab.pid && suricata -D -c /etc/suricata/suricata.yaml -i eth1 -S /etc/suricata/rules/local.rules --pidfile /tmp/suricata-lab.pid &&
+        exec tail -f /dev/null
+    stdin_open: true
+    tty: true
+    cap_add:
+      - NET_ADMIN
+    volumes:
+      - ./rules:/etc/suricata/rules:ro
+      - ./logs/suricata:/var/log/suricata
+    networks:
+      internal_net:
+        ipv4_address: 10.10.10.3
+      service_net:
+        ipv4_address: 10.20.20.3
+  Target:
+    build:
+      context: ./honeypot
+    image: ransomware-target:local
+    stdin_open: true
+    tty: true
+    volumes:
+      - ./logs/honeypot:/app/logs
+    networks:
+      service_net:
+        ipv4_address: 10.20.20.2
+
+networks:
+  internal_net:
+    ipam:
+      config:
+        - subnet: 10.10.10.0/24
+  service_net:
+    ipam:
+      config:
+        - subnet: 10.20.20.0/24

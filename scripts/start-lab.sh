@@ -3,14 +3,14 @@ set -Eeuo pipefail
 
 cd "$(dirname "$0")/.."
 
-echo "[1/4] Avvio dei container..."
+echo "[1/5] Avvio dei container..."
 docker-compose up -d
 
 ATTACKER="ransomware_ids_honeypot-Attacker-1"
 GATEWAY="ransomware_ids_honeypot-Gateaway-1"
 TARGET="ransomware_ids_honeypot-Target-1"
 
-echo "[2/4] Configurazione delle rotte..."
+echo "[2/5] Configurazione delle rotte..."
 ATTACKER_PID=$(docker inspect -f '{{.State.Pid}}' "$ATTACKER")
 TARGET_PID=$(docker inspect -f '{{.State.Pid}}' "$TARGET")
 
@@ -20,7 +20,7 @@ sudo nsenter -t "$ATTACKER_PID" -n \
 sudo nsenter -t "$TARGET_PID" -n \
   ip route replace 10.10.10.0/24 via 10.20.20.3
 
-echo "[3/4] Configurazione del firewall..."
+echo "[3/5] Configurazione del firewall..."
 # ip_forward è già attivo nel Gateway; non scrivere in /proc/sys.
 # Elimina soltanto la tabella del laboratorio, se esiste.
 docker exec -u 0 "$GATEWAY" sh -c \
@@ -38,7 +38,20 @@ docker exec -u 0 "$GATEWAY" \
   nft add rule inet lab_filter forward \
   ip saddr 10.10.10.0/24 ip daddr 10.20.20.0/24 accept
 
-echo "[4/4] Verifica della connettività..."
+echo "[4/5] Inizializzazione IPS..."
+if docker exec -u 0 "$GATEWAY" nft list table inet ips_response >/dev/null 2>&1; then
+  echo "Tabella ips_response già presente: configurazione preservata."
+else
+  docker exec -u 0 "$GATEWAY" nft -f - <<'NFT'
+add table inet ips_response
+add set inet ips_response blocked_v4 { type ipv4_addr; timeout 1m; }
+add chain inet ips_response forward_guard { type filter hook forward priority -10; policy accept; }
+add rule inet ips_response forward_guard ip saddr @blocked_v4 ip daddr 10.20.20.0/24 drop
+NFT
+  echo "Tabella ips_response creata."
+fi
+
+echo "[5/5] Verifica della connettività..."
 docker exec "$ATTACKER" ping -c 2 -W 2 10.10.10.3
 docker exec "$ATTACKER" ping -c 3 -W 2 10.20.20.2
 

@@ -1,0 +1,2 @@
+{"timestamp": "2026-10-28T09:40:05.740279+00:00", "event_id": "879414e2-ed6e-4072-91bd-0ac04adb0356", "src_ip": "10.10.10.2", "score": 100, "duration_seconds": 60, "decision": "dry-run", "action": "would_redirect"}
+{"timestamp": "2026-10-28T09:41:33.752987+00:00", "event_id": "231bbd8c-e40a-48c2-88e1-6f7d8f696ef7", "src_ip": "10.10.10.2", "score": 100, "duration_seconds": 60, "decision": "redirected"}

@@ -3,20 +3,40 @@ __pycache__/
 *.py[cod]
 .venv/
 venv/
+.pytest_cache/
 
-# Backup e file temporanei
+# Backup e versioni intermedie
+/backups/
 *.bak
 *.pre-*
+*.before-*
 *.dryrun-backup
 *.tmp
 *.swp
 *~
 
-# Log generati durante l'esecuzione
-logs/*
-!logs/README.md
+# Log di esecuzione
+/logs/*
+!/logs/README.md
 
 # Configurazioni locali
 .env
 .env.*
 !.env.example
+.idea/
+.vscode/
+
+# Metadati dell'ambiente di progettazione
+/.dsp
+/information.json
+/labels.json
+/network.json
+
+# Dati generati durante le simulazioni
+/data/ransomware-demo/
+
+# Relazione finale gestita separatamente su Overleaf
+/docs/REPORT_TECNICO.md
+
+# Snapshot intermedi della migrazione
+/results/pre-migration/

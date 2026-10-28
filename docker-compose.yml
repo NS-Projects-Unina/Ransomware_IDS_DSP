@@ -10,12 +10,7 @@ services:
 
   Gateaway:
     image: ransomware-gateway:local
-    entrypoint:
-      - sh
-      - -c
-      - |
-        rm -f /tmp/suricata-lab.pid && suricata -D -c /etc/suricata/suricata.yaml -i eth1 -S /etc/suricata/rules/local.rules --pidfile /tmp/suricata-lab.pid &&
-        exec tail -f /dev/null
+    entrypoint: ["/bin/sh", "/opt/lab/start-gateway.sh"]
     stdin_open: true
     tty: true
     cap_add:
@@ -23,6 +18,9 @@ services:
     volumes:
       - ./rules:/etc/suricata/rules:ro
       - ./logs/suricata:/var/log/suricata
+      - ./scripts/behavioral-engine-gateway.py:/opt/lab/behavioral-engine.py:ro
+      - ./logs:/opt/lab/logs
+      - ./gateway/start-gateway.sh:/opt/lab/start-gateway.sh:ro
     networks:
       internal_net:
         ipv4_address: 10.10.10.3
@@ -36,9 +34,21 @@ services:
     tty: true
     volumes:
       - ./logs/honeypot:/app/logs
+      - ransomware_demo_data:/app/decoy-documents
     networks:
       service_net:
         ipv4_address: 10.20.20.2
+
+
+  FileMonitor:
+    build:
+      context: ./monitor
+    image: ransomware-filemonitor:local
+    restart: unless-stopped
+    network_mode: "none"
+    volumes:
+      - ransomware_demo_data:/data:ro
+      - ./logs/monitor:/logs
 
 networks:
   internal_net:
@@ -49,3 +59,7 @@ networks:
     ipam:
       config:
         - subnet: 10.20.20.0/24
+
+volumes:
+  ransomware_demo_data:
+    external: true

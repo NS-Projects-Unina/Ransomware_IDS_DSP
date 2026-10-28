@@ -1,0 +1,11 @@
+table ip lab_redirect {
+	set suspicious_v4 {
+		type ipv4_addr
+		timeout 1m
+	}
+
+	chain prerouting {
+		type nat hook prerouting priority dstnat; policy accept;
+		iifname "eth0" ip saddr @suspicious_v4 ip daddr 10.20.20.2 tcp dport 8081 dnat to 10.20.20.2:8080
+	}
+}

@@ -1,0 +1,5 @@
+NAME                                    IMAGE                               COMMAND                  SERVICE       CREATED         STATUS         PORTS
+ransomware_ids_honeypot-Attacker-1      dockersecplayground/alpine:latest   "sh -c 'tail -f /dev…"   Attacker      5 days ago      Up 5 days      
+ransomware_ids_honeypot-FileMonitor-1   ransomware-filemonitor:local        "python3 -u /app/fil…"   FileMonitor   2 hours ago     Up 2 hours     
+ransomware_ids_honeypot-Gateaway-1      ransomware-gateway:local            "/bin/sh /opt/lab/st…"   Gateaway      4 minutes ago   Up 4 minutes   
+ransomware_ids_honeypot-Target-1        ransomware-target:local             "sh -c 'python3 -u /…"   Target        5 days ago      Up 5 days      8080-8081/tcp

@@ -1,0 +1,3 @@
+{"timestamp": "2026-10-28T12:00:00+00:00", "event_type": "network_behavioral_alert", "event_id": "test-near", "src_ip": "10.10.10.2", "score": 100, "detection_mode": "fast_10s", "attribution": "application_log_src_ip"}
+{"timestamp": "2026-10-28T12:10:00+00:00", "event_type": "network_behavioral_alert", "event_id": "test-far", "src_ip": "10.10.10.2", "score": 60, "detection_mode": "extended_60s", "attribution": "application_log_src_ip"}
+{"timestamp": "2026-10-28T12:20:00+00:00", "event_type": "network_behavioral_alert", "event_id": "test-wrong-ip", "src_ip": "10.10.10.2", "score": 100, "detection_mode": "fast_10s", "attribution": "application_log_src_ip"}

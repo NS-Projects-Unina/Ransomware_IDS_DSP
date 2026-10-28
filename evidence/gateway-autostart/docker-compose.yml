@@ -1,0 +1,65 @@
+services:
+  Attacker:
+    image: dockersecplayground/alpine:latest
+    command: ["sh", "-c", "tail -f /dev/null"]
+    stdin_open: true
+    tty: true
+    networks:
+      internal_net:
+        ipv4_address: 10.10.10.2
+
+  Gateaway:
+    image: ransomware-gateway:local
+    entrypoint: ["/bin/sh", "/opt/lab/start-gateway.sh"]
+    stdin_open: true
+    tty: true
+    cap_add:
+      - NET_ADMIN
+    volumes:
+      - ./rules:/etc/suricata/rules:ro
+      - ./logs/suricata:/var/log/suricata
+      - ./scripts/behavioral-engine-gateway.py:/opt/lab/behavioral-engine.py:ro
+      - ./logs:/opt/lab/logs
+      - ./gateway/start-gateway.sh:/opt/lab/start-gateway.sh:ro
+    networks:
+      internal_net:
+        ipv4_address: 10.10.10.3
+      service_net:
+        ipv4_address: 10.20.20.3
+  Target:
+    build:
+      context: ./honeypot
+    image: ransomware-target:local
+    stdin_open: true
+    tty: true
+    volumes:
+      - ./logs/honeypot:/app/logs
+      - ransomware_demo_data:/app/decoy-documents
+    networks:
+      service_net:
+        ipv4_address: 10.20.20.2
+
+
+  FileMonitor:
+    build:
+      context: ./monitor
+    image: ransomware-filemonitor:local
+    restart: unless-stopped
+    network_mode: "none"
+    volumes:
+      - ransomware_demo_data:/data:ro
+      - ./logs/monitor:/logs
+
+networks:
+  internal_net:
+    ipam:
+      config:
+        - subnet: 10.10.10.0/24
+  service_net:
+    ipam:
+      config:
+        - subnet: 10.20.20.0/24
+
+volumes:
+  ransomware_demo_data:
+    external: true

@@ -1,0 +1,11 @@
+table inet ips_response {
+	set blocked_v4 {
+		type ipv4_addr
+		timeout 1m
+	}
+
+	chain forward_guard {
+		type filter hook forward priority filter - 10; policy accept;
+		ip saddr @blocked_v4 ip daddr 10.20.20.0/24 drop
+	}
+}

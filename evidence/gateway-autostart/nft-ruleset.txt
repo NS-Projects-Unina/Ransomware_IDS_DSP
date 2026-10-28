@@ -1,0 +1,50 @@
+table ip nat {
+	chain DOCKER_OUTPUT {
+		ip daddr 127.0.0.11 tcp dport 53 counter packets 0 bytes 0 xt target "DNAT"
+		ip daddr 127.0.0.11 udp dport 53 counter packets 0 bytes 0 xt target "DNAT"
+	}
+
+	chain OUTPUT {
+		type nat hook output priority dstnat; policy accept;
+		ip daddr 127.0.0.11 counter packets 0 bytes 0 jump DOCKER_OUTPUT
+	}
+
+	chain DOCKER_POSTROUTING {
+		ip saddr 127.0.0.11 tcp sport 33935 counter packets 0 bytes 0 xt target "SNAT"
+		ip saddr 127.0.0.11 udp sport 39991 counter packets 0 bytes 0 xt target "SNAT"
+	}
+
+	chain POSTROUTING {
+		type nat hook postrouting priority srcnat; policy accept;
+		ip daddr 127.0.0.11 counter packets 0 bytes 0 jump DOCKER_POSTROUTING
+	}
+}
+table inet lab_filter {
+	chain forward {
+		type filter hook forward priority filter; policy drop;
+		ct state established,related accept
+		ip saddr 10.10.10.0/24 ip daddr 10.20.20.0/24 accept
+	}
+}
+table inet ips_response {
+	set blocked_v4 {
+		type ipv4_addr
+		timeout 1m
+	}
+
+	chain forward_guard {
+		type filter hook forward priority filter - 10; policy accept;
+		ip saddr @blocked_v4 ip daddr 10.20.20.0/24 drop
+	}
+}
+table ip lab_redirect {
+	set suspicious_v4 {
+		type ipv4_addr
+		timeout 1m
+	}
+
+	chain prerouting {
+		type nat hook prerouting priority dstnat; policy accept;
+		iifname "eth0" ip saddr @suspicious_v4 ip daddr 10.20.20.2 tcp dport 8081 dnat to 10.20.20.2:8080
+	}
+}

@@ -1,0 +1,7 @@
+table inet lab_filter {
+	chain forward {
+		type filter hook forward priority filter; policy drop;
+		ct state established,related accept
+		ip saddr 10.10.10.0/24 ip daddr 10.20.20.0/24 accept
+	}
+}

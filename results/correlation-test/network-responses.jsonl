@@ -1,0 +1,3 @@
+{"event_id": "test-near", "decision": "dry-run"}
+{"event_id": "test-far", "decision": "dry-run"}
+{"event_id": "test-wrong-ip", "decision": "redirected"}

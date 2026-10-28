@@ -1,0 +1,2 @@
+{"timestamp": "2026-10-28T12:00:05+0000", "event_type": "alert", "src_ip": "10.10.10.2", "alert": {"signature_id": 1000003, "action": "allowed"}}
+{"timestamp": "2026-10-28T12:20:05+0000", "event_type": "alert", "src_ip": "10.10.10.99", "alert": {"signature_id": 1000004, "action": "blocked"}}

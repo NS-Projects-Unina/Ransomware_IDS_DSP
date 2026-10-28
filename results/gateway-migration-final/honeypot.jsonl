@@ -1,0 +1,54 @@
+{"timestamp": "2026-10-21T07:46:55.914502+00:00", "event_type": "connection", "src_ip": "10.10.10.2", "src_port": 36503, "dest_port": 8080}
+{"timestamp": "2026-10-21T07:58:44.138537+00:00", "event_type": "connection", "src_ip": "10.10.10.2", "src_port": 35609, "dest_port": 8080}
+{"timestamp": "2026-10-21T08:01:40.182683+00:00", "event_type": "connection", "src_ip": "10.10.10.2", "src_port": 39401, "dest_port": 8080}
+{"timestamp": "2026-10-21T08:01:40.614313+00:00", "event_type": "connection", "src_ip": "10.10.10.2", "src_port": 37703, "dest_port": 8080}
+{"timestamp": "2026-10-21T08:01:41.047437+00:00", "event_type": "connection", "src_ip": "10.10.10.2", "src_port": 39207, "dest_port": 8080}
+{"timestamp": "2026-10-21T08:01:41.461352+00:00", "event_type": "connection", "src_ip": "10.10.10.2", "src_port": 43985, "dest_port": 8080}
+{"timestamp": "2026-10-21T08:01:41.863483+00:00", "event_type": "connection", "src_ip": "10.10.10.2", "src_port": 37801, "dest_port": 8080}
+{"timestamp": "2026-10-21T08:02:53.364474+00:00", "event_type": "connection", "src_ip": "10.10.10.2", "src_port": 34773, "dest_port": 8080}
+{"timestamp": "2026-10-21T08:02:53.771264+00:00", "event_type": "connection", "src_ip": "10.10.10.2", "src_port": 42185, "dest_port": 8080}
+{"timestamp": "2026-10-21T08:02:54.196016+00:00", "event_type": "connection", "src_ip": "10.10.10.2", "src_port": 37549, "dest_port": 8080}
+{"timestamp": "2026-10-21T08:02:54.612401+00:00", "event_type": "connection", "src_ip": "10.10.10.2", "src_port": 38303, "dest_port": 8080}
+{"timestamp": "2026-10-21T08:02:55.026116+00:00", "event_type": "connection", "src_ip": "10.10.10.2", "src_port": 39591, "dest_port": 8080}
+{"timestamp": "2026-10-21T08:24:50.972751+00:00", "event_type": "connection", "src_ip": "10.10.10.2", "src_port": 44997, "dest_port": 8080}
+{"timestamp": "2026-10-21T08:24:51.978019+00:00", "event_type": "connection", "src_ip": "10.10.10.2", "src_port": 45043, "dest_port": 8080}
+{"timestamp": "2026-10-21T08:24:52.982581+00:00", "event_type": "connection", "src_ip": "10.10.10.2", "src_port": 46047, "dest_port": 8080}
+{"timestamp": "2026-10-21T08:24:53.987030+00:00", "event_type": "connection", "src_ip": "10.10.10.2", "src_port": 32907, "dest_port": 8080}
+{"timestamp": "2026-10-21T08:24:54.991781+00:00", "event_type": "connection", "src_ip": "10.10.10.2", "src_port": 40937, "dest_port": 8080}
+{"timestamp": "2026-10-21T08:26:21.679133+00:00", "event_type": "connection", "src_ip": "10.10.10.2", "src_port": 45021, "dest_port": 8080}
+{"timestamp": "2026-10-21T08:26:22.683916+00:00", "event_type": "connection", "src_ip": "10.10.10.2", "src_port": 38987, "dest_port": 8080}
+{"timestamp": "2026-10-21T08:26:23.692750+00:00", "event_type": "connection", "src_ip": "10.10.10.2", "src_port": 41313, "dest_port": 8080}
+{"timestamp": "2026-10-21T08:26:24.699690+00:00", "event_type": "connection", "src_ip": "10.10.10.2", "src_port": 42691, "dest_port": 8080}
+{"timestamp": "2026-10-21T08:26:25.707508+00:00", "event_type": "connection", "src_ip": "10.10.10.2", "src_port": 46641, "dest_port": 8080}
+{"timestamp": "2026-10-21T09:17:05.040349+00:00", "event_type": "connection", "src_ip": "10.10.10.2", "src_port": 46667, "dest_port": 8080}
+{"timestamp": "2026-10-22T13:54:33.857918+00:00", "event_type": "connection", "src_ip": "10.10.10.2", "src_port": 41019, "dest_port": 8080}
+{"timestamp": "2026-10-22T14:10:41.530841+00:00", "event_type": "connection", "src_ip": "10.10.10.2", "src_port": 37385, "dest_port": 8080, "service": "document_service", "request": "LIST", "request_bytes": 5}
+{"timestamp": "2026-10-22T14:12:32.360669+00:00", "event_type": "connection", "src_ip": "10.10.10.2", "src_port": 39695, "dest_port": 8080, "service": "document_service", "request": "STATUS", "request_bytes": 7}
+{"timestamp": "2026-10-22T14:12:32.479252+00:00", "event_type": "connection", "src_ip": "10.10.10.2", "src_port": 34151, "dest_port": 8080, "service": "document_service", "request": "GET budget_2026.xlsx", "request_bytes": 21}
+{"timestamp": "2026-10-22T14:20:43.478385+00:00", "event_type": "connection", "src_ip": "10.10.10.2", "src_port": 37349, "dest_port": 8080, "service": "document_service", "request": "LIST", "request_bytes": 5}
+{"timestamp": "2026-10-22T14:57:20.267143+00:00", "event_type": "connection", "src_ip": "10.10.10.2", "src_port": 36529, "dest_port": 8080, "service": "document_service", "request": "SIMULATE_ENCRYPT budget_2026.xlsx", "request_bytes": 34, "simulation_document": "budget_2026.xlsx", "simulation_outcome": "created"}
+{"timestamp": "2026-10-22T15:04:01.575606+00:00", "event_type": "connection", "src_ip": "10.10.10.2", "src_port": 41115, "dest_port": 8080, "service": "document_service", "request": "STATUS", "request_bytes": 7}
+{"timestamp": "2026-10-22T15:04:01.580500+00:00", "event_type": "connection", "src_ip": "10.10.10.2", "src_port": 40309, "dest_port": 8080, "service": "document_service", "request": "STATUS", "request_bytes": 7}
+{"timestamp": "2026-10-22T15:04:01.583215+00:00", "event_type": "connection", "src_ip": "10.10.10.2", "src_port": 37397, "dest_port": 8080, "service": "document_service", "request": "STATUS", "request_bytes": 7}
+{"timestamp": "2026-10-22T15:04:01.586996+00:00", "event_type": "connection", "src_ip": "10.10.10.2", "src_port": 38585, "dest_port": 8080, "service": "document_service", "request": "STATUS", "request_bytes": 7}
+{"timestamp": "2026-10-22T15:04:01.590165+00:00", "event_type": "connection", "src_ip": "10.10.10.2", "src_port": 34275, "dest_port": 8080, "service": "document_service", "request": "STATUS", "request_bytes": 7}
+{"timestamp": "2026-10-22T15:04:02.699536+00:00", "event_type": "connection", "src_ip": "10.10.10.2", "src_port": 45285, "dest_port": 8080, "service": "document_service", "request": "LIST", "request_bytes": 5}
+{"timestamp": "2026-10-22T15:05:23.840158+00:00", "event_type": "connection", "src_ip": "10.10.10.2", "src_port": 39975, "dest_port": 8080, "service": "document_service", "request": "SIMULATE_ENCRYPT clienti_2026.csv", "request_bytes": 34, "simulation_document": "clienti_2026.csv", "simulation_outcome": "created"}
+{"timestamp": "2026-10-22T15:20:32.738781+00:00", "event_type": "connection", "src_ip": "10.10.10.2", "src_port": 33577, "dest_port": 8080, "service": "document_service", "request": "LIST", "request_bytes": 5}
+{"timestamp": "2026-10-22T15:28:07.430205+00:00", "event_type": "connection", "src_ip": "10.10.10.2", "src_port": 37139, "dest_port": 8080, "service": "document_service", "request": "LIST", "request_bytes": 5}
+{"timestamp": "2026-10-22T16:13:18.094747+00:00", "event_type": "connection", "src_ip": "10.10.10.2", "src_port": 43663, "dest_port": 8080, "service": "document_service", "request": "STATUS", "request_bytes": 7}
+{"timestamp": "2026-10-22T16:16:45.976418+00:00", "event_type": "connection", "src_ip": "10.10.10.2", "src_port": 44669, "dest_port": 8080, "service": "document_service", "request": "LIST", "request_bytes": 5}
+{"timestamp": "2026-10-22T16:18:14.232406+00:00", "event_type": "connection", "src_ip": "10.10.10.2", "src_port": 44405, "dest_port": 8080, "service": "document_service", "request": "LIST", "request_bytes": 5}
+{"timestamp": "2026-10-28T09:30:54.890066+00:00", "event_type": "connection", "src_ip": "10.10.10.2", "src_port": 43745, "dest_port": 8080, "service": "document_service", "request": "LIST", "request_bytes": 5}
+{"timestamp": "2026-10-28T09:41:33.901061+00:00", "event_type": "connection", "src_ip": "10.10.10.2", "src_port": 46205, "dest_port": 8080, "service": "document_service", "request": "GET budget_2026.xlsx", "request_bytes": 21}
+{"timestamp": "2026-10-28T09:41:34.014870+00:00", "event_type": "connection", "src_ip": "10.10.10.2", "src_port": 37371, "dest_port": 8080, "service": "document_service", "request": "GET clienti_2026.csv", "request_bytes": 21}
+{"timestamp": "2026-10-28T09:41:34.125665+00:00", "event_type": "connection", "src_ip": "10.10.10.2", "src_port": 36699, "dest_port": 8080, "service": "document_service", "request": "GET contratti_2026.pdf", "request_bytes": 23}
+{"timestamp": "2026-10-28T09:41:34.253319+00:00", "event_type": "connection", "src_ip": "10.10.10.2", "src_port": 35777, "dest_port": 8080, "service": "document_service", "request": "GET budget_2026.xlsx", "request_bytes": 21}
+{"timestamp": "2026-10-28T09:41:34.502332+00:00", "event_type": "connection", "src_ip": "10.10.10.2", "src_port": 44109, "dest_port": 8080, "service": "document_service", "request": "LIST", "request_bytes": 5}
+{"timestamp": "2026-10-28T10:02:26.114708+00:00", "event_type": "connection", "src_ip": "10.10.10.2", "src_port": 34811, "dest_port": 8080, "service": "document_service", "request": "GET clienti_2026.csv", "request_bytes": 21}
+{"timestamp": "2026-10-28T10:02:28.224568+00:00", "event_type": "connection", "src_ip": "10.10.10.2", "src_port": 42121, "dest_port": 8080, "service": "document_service", "request": "GET contratti_2026.pdf", "request_bytes": 23}
+{"timestamp": "2026-10-28T10:02:30.352912+00:00", "event_type": "connection", "src_ip": "10.10.10.2", "src_port": 36823, "dest_port": 8080, "service": "document_service", "request": "GET budget_2026.xlsx", "request_bytes": 21}
+{"timestamp": "2026-10-28T10:02:32.586990+00:00", "event_type": "connection", "src_ip": "10.10.10.2", "src_port": 35371, "dest_port": 8080, "service": "document_service", "request": "LIST", "request_bytes": 5}
+{"timestamp": "2026-10-28T10:05:59.073983+00:00", "event_type": "connection", "src_ip": "10.10.10.2", "src_port": 35913, "dest_port": 8080, "service": "document_service", "request": "LIST", "request_bytes": 5}
+{"timestamp": "2026-10-28T10:27:10.594360+00:00", "event_type": "connection", "src_ip": "10.10.10.2", "src_port": 34635, "dest_port": 8080, "service": "document_service", "request": "LIST", "request_bytes": 5}
+{"timestamp": "2026-10-28T10:32:07.865701+00:00", "event_type": "connection", "src_ip": "10.10.10.2", "src_port": 44061, "dest_port": 8080, "service": "document_service", "request": "LIST", "request_bytes": 5}

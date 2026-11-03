@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Continuous, bounded network-behavior detection for the isolated lab."""
+
 import argparse
 from collections import defaultdict, deque
 from datetime import datetime, timezone
